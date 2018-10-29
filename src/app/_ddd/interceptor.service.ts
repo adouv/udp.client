@@ -40,32 +40,21 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(req)
       .retry(3)
       .map((resp: HttpEvent<any>) => {
+
         if (resp instanceof HttpResponse) {
           console.log('Response is ::');
           console.log(resp.body);
         }
+        
         return resp;
       })
       .catch((err: HttpResponse<any>) => {
 
         this.errorHandle(err);
-        //return Observable.of(err);
+
         return ErrorObservable.create(err);
+
       });
-    // return next.handle(req).pipe(mergeMap((event: any) => {
-    //   if (event instanceof HttpResponse && event.status != 200) {
-    //     console.log('---error1---');
-    //     console.log(event);
-    //     console.log('---error1---');
-    //     return ErrorObservable.create(event);
-    //   }
-    //   return event;
-    // }), catchError((error: HttpResponse<any>) => {
-    //   console.log('---error2---');
-    //   console.log(event);
-    //   console.log('---error2---');
-    //   return this.responseHandle(error);
-    // }));
   }
   /**
    * 

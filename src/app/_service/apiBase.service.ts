@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 import { ResponseMessageDto } from '../_dto/responseMessageDto';
 /**
  * api统一处理类
@@ -38,24 +39,20 @@ export abstract class ApiBaseService<P> {
       if (this.Validate()) {
         await this.ExecuteMethod();
       } else {
-        this.ResponseResult = {
-          Message: "验证失败",
-          ErrorCode: "000000",
-          IsSuccess: false,
-          Status: 100
-        };
+        return new Promise((resolve, reject) => {
+          this.ResponseResult = {
+            Message: '验证失败',
+            ErrorCode: "000000",
+            IsSuccess: false,
+            Status: 100
+          };
+          reject(this.ResponseResult);
+        });
       }
     } catch (error) {
-
-      this.ResponseResult = {
-        Message: error + "",
-        ErrorCode: "999999",
-        IsSuccess: false,
-        Status: 100
-      };
-      console.log(this.ResponseResult);
-
+      return new Promise((resolve, reject) => {
+        reject(error.message);
+      });
     }
-    return this.ResponseResult;
   }
 }

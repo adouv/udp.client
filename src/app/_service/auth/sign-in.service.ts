@@ -55,7 +55,8 @@ export class SignInService extends ApiBaseService<AuthRequestDto> {
         Status: 200
       };
     }).catch(error => {
-      throw new Error(error);
+      console.log(error.message);
+      throw new Error(JSON.stringify(error.message));
     });
 
 

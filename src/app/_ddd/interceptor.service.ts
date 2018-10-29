@@ -6,6 +6,8 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { mergeMap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 /**
@@ -38,14 +40,15 @@ export class InterceptorService implements HttpInterceptor {
     // console.log(req);
 
     return next.handle(req)
-      .retry(3)
       .map((resp: HttpEvent<any>) => {
 
-        if (resp instanceof HttpResponse) {
-          console.log('Response is ::');
-          console.log(resp.body);
-        }
-        
+        // if (resp instanceof HttpResponse && resp.status !== 200) {
+        //   // console.log('Response is ::');
+        //   // console.log(resp.body);
+        //   this.errorHandle(resp);
+        //   return resp;
+        // }
+
         return resp;
       })
       .catch((err: HttpResponse<any>) => {

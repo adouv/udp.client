@@ -54,5 +54,6 @@ export abstract class ApiBaseService<P> {
         reject(error.message);
       });
     }
+    return this.ResponseResult;
   }
 }

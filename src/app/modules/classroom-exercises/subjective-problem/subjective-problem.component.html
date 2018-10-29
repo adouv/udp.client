@@ -1,0 +1,56 @@
+<div class="subjective-problem-content">
+  <div class="subjective-top">
+    <div class="inner-box">
+        <div class="answer-cont-lit">
+         <span>3</span> /5单选题
+        </div>
+        <div class="answer-cont">
+          <p>一个数的绝对值等于这个数本身，这个数是( )</p>
+          <ul>
+              <li>A.非负数</li>
+              <li>B.非正数</li>
+              <li>C.正数</li>
+              <li>D.0</li>
+          </ul>
+        </div>
+      </div>
+  </div>
+  <div class="subjective-bottom">
+    <div class="status-bar clearfix">
+      <div class="submit clearfix status-text">
+        <span>已提交</span>
+        <span>:</span>
+        <span>32</span>
+      </div>
+      <div class="no-submit status-text">
+        <span>未提交</span>
+        <span>:</span>
+        <span>3</span>
+      </div>
+      <div class="doing status-text">
+        其中12人正在操作
+      </div>
+      <button aria-label="Close" class="close ng-star-inserted">
+        <span class="close-x"></span>
+      </button>
+    </div>                                                                                                                      
+    <div class="students-list">
+      <ul >
+        <li *ngFor="let data of dataSet"  [ngClass]="{'is-submit':data.status}">
+          <span class="student-img">
+            <img src="../../../assets/images/{{data.image}}.png">
+          </span>
+          <span class="student-name">{{data.name}}</span>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="bottom-btn">
+      <button type="button" class="btn btn-cancel result-preview">
+        结果统览
+      </button>
+      <button type="button" class="btn btn-sure note-preview">
+        笔记统览
+      </button>
+    </div> -->
+  </div>
+</div>

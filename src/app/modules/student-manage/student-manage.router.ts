@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { StudentListComponent } from './student-list/student-list.component';
+import { TemporaryClassComponent } from './temporary-class/temporary-class.component';
 
 const StudentManageRouters: Routes = [
     {
@@ -11,6 +12,10 @@ const StudentManageRouters: Routes = [
     {
         path: 'studentList',
         component: StudentListComponent
+    },
+    {
+        path: 'temporaryClass',
+        component: TemporaryClassComponent
     }
 ];
 

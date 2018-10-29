@@ -1,0 +1,95 @@
+@import '../../../../assets/scss/variable';
+
+.login-panel {
+  position: absolute;
+  transform: translateX(-50%);
+  height: 65%;
+  top: 14%;
+  left: 50%;
+
+  .login-forms {
+    display: flex;
+    flex-direction: row;
+
+    .login-form {
+      box-shadow: darkgrey 10px 10px 30px 5px;
+      display: inline-block;
+      margin-right: computer(15px);
+      width: computer(361px);
+
+      .loginBg {
+        width: 100%;
+
+        img {
+          display: block;
+          width: 100%;
+          height: computer(181px);
+        }
+      }
+
+      .input-container {
+        padding: computer(50px) 0 computer(20px) 0;
+
+        .input-panel {
+          width: 301px;
+          height: 50.5px;
+          display: flex;
+          flex-direction: row;
+          margin: 0 auto;
+
+          i {
+            width: computer(30px);
+            line-height: computer(40px);
+            display: inline-block;
+          }
+
+          // .input-border {
+          //   border-bottom: 1px solid #eeeeee;
+          // }
+
+          input {
+            outline: none !important;
+            border: none;
+            font-size: computer(14px);
+            width: computer(270px);
+            height: computer(40px);
+            background-color: #ffffff;
+            box-shadow: 0px 1px 0px 0px #dddddd;
+          }
+        }
+      }
+
+      .login-footer {
+
+        .sure,
+        .lin {
+          cursor: pointer;
+        }
+
+        .sure {
+          width: computer(161px);
+          height: computer(40px);
+          line-height: computer(40px);
+          text-align: center;
+          border-radius: computer(10px);
+          color: white;
+          background: linear-gradient(to right, #febb5c, #ff7d55);
+          margin: auto;
+
+        }
+
+        .lin {
+          margin: auto;
+          text-align: center;
+          margin-top: computer(52px);
+          margin-bottom: computer(18px);
+          font-family: MicrosoftYaHei;
+          font-size: computer(14px);
+          font-weight: normal;
+          font-stretch: normal;
+          color: #ff7d55;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,228 @@
+@import "../../../../assets/scss/index.scss";
+
+.practice-content {
+  width: computer(800px);
+  height: computer(600px);
+  margin: 0 auto;
+  box-shadow: 0px 8px 12px 0px rgba(7, 0, 2, 0.3);
+  border-radius: 6px;
+  border: solid 1px #dddddd;
+  position: relative;
+
+  .close {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: color .3s ease;
+    color: rgba(0, 0, 0, 0.43);
+    outline: 0;
+  }
+
+  .close-x {
+    display: block;
+    font-style: normal;
+    vertical-align: baseline;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+  }
+
+  .close-x:before {
+    content: "\e633";
+    display: block;
+    font-family: "anticon" !important;
+  }
+
+  .praction-title {
+    text-align: center;
+    height: computer(36px);
+    border-bottom: 1px solid #dddddd;
+    font-size: computer(16px);
+    line-height: computer(36px);
+    color: #333333;
+  }
+
+  .search {
+    height: computer(55px);
+    padding-top: computer(10px);
+    margin: 0 auto;
+
+    ul,
+    li {
+      display: -webkit-box;
+
+      nz-select {
+        width: computer(120px);
+        margin-left: computer(18px);
+        height: computer(30px);
+        color: #333333;
+
+        .ant-select-selection--single {
+          border-radius: 0px !important;
+        }
+      }
+
+      nz-date-picker {
+        width: computer(120px);
+        margin-left: computer(10px);
+        height: computer(30px);
+
+      }
+
+      .input-group-search {
+        margin-right: 30px;
+        position: relative;
+
+        .search-input {
+          width: computer(200px);
+          height: computer(32px);
+          border: 1px solid #dddddd;
+          text-indent: computer(9px);
+          color: #999999;
+          margin: 0 15px 0 10px;
+        }
+
+        .iconfont {
+          font-family: "iconfont" !important;
+          font-size: 16px;
+          font-style: normal;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-search2:before {
+          content: "\E6C4";
+        }
+
+        .input-suffix {
+          height: 100%;
+          width: 1.875rem;
+          cursor: pointer;
+          position: absolute;
+          color: #999999;
+          top: 50%;
+          right: 10px;
+          margin-top: -1rem;
+        }
+      }
+
+      button {
+        margin-right: 10px;
+      }
+
+    }
+
+  }
+
+  .table-list {
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: left;
+      cursor: default;
+
+      td {
+        padding: computer(22px) 0;
+        line-height: 1;
+      }
+
+      th {
+        height: computer(60px);
+      }
+
+      th {
+        color: $color_font-light;
+      }
+
+      td {
+        color: $color_font-center
+      }
+
+      tr th:first-child,
+      tr td:first-child,
+      tr th:last-child,
+      tr td:last-child {
+        text-align: center;
+      }
+
+      tr td {
+        img {
+          margin-right: 5px;
+        }
+
+        span {
+          @include line-ell(185px)
+        }
+      }
+
+      .percent {
+        display: inline-block;
+        width: computer(40px);
+        text-align: right;
+      }
+
+      tbody {
+        display: block;
+        height: 420px;
+        overflow-y: scroll;
+        @include scroll-bar(8px);
+      }
+
+      thead,
+      tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      thead {
+        width: calc(100% - 1em)
+      }
+
+      tbody tr td:first-child {
+        width: computer(90px);
+      }
+
+      .td-2 {
+        width: computer(260px);
+      }
+
+      .td-3 {
+        width: computer(174px);
+      }
+
+      .td-4 {
+        width: computer(80px);
+      }
+
+      .td-5 {
+        width: computer(60px);
+      }
+
+      tbody tr td:last-child {
+        width: computer(120px);
+      }
+
+      tbody tr:hover {
+        background-color: #fcece7;
+        cursor: pointer;
+
+        td {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+}

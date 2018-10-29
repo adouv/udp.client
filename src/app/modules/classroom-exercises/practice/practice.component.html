@@ -1,3 +1,68 @@
-<p>
-  practice works!
-</p>
+<div class="practice-content">
+  <button aria-label="Close" class="close ng-star-inserted">
+    <span class="close-x"></span>
+  </button>
+  <div class="praction-title">
+    请选择要加载的练习包
+  </div>
+  <div class="search" flex='cross:center main:center'>
+    <ul>
+      <li>
+        <nz-select nzAllowClear nzPlaceHolder="全部">
+          <nz-option [nzLabel]="'全部'" [nzValue]="'0'"></nz-option>
+          <nz-option [nzLabel]="'未使用'" [nzValue]="'1'"></nz-option>
+          <nz-option [nzLabel]="'部分使用'" [nzValue]="'2'"></nz-option>
+          <nz-option [nzLabel]="'已使用'" [nzValue]="'3'"></nz-option>
+        </nz-select>
+      </li>
+      <li>
+        <nz-date-picker (ngModelChange)="onChange($event)" style="width:120px;"></nz-date-picker>
+      </li>
+      <li>
+        <div class="input-group-search">
+          <input type="text" placeholder="关键字" class="search-input">
+          <span class="input-suffix">
+            <i class="iconfont icon-search2"></i>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="lw-tpk-pc">
+          <button nz-button [nzType]="'default'">本地文件</button>
+          <button nz-button [nzType]="'default'">校本题库</button>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+  <div class="table-list">
+    <table>
+      <thead>
+        <tr>
+          <th width="90">序号</th>
+          <th width="260">习题包名称</th>
+          <th wdith="120">添加时间</th>
+          <th width="80">使用状态</th>
+          <th width="60">使用次数</th>
+          <th width="120">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <tr *ngFor="let data of dataSet">
+          <td>{{data.key}}</td>
+          <td class="td-2"><img src="../../../../assets/images/file{{data.type}}.png"><span>{{data.name}}</span></td>
+          <td class="td-3">{{data.addTime}}</td>
+          <td class="td-4">{{data.status}}</td>
+          <td class="td-5">{{data.counts}}次</td>
+          <td>
+            <div class="lw-tpk-pc">
+              <button nz-button [nzType]="'danger'">开始做题</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

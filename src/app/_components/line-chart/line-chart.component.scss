@@ -1,0 +1,112 @@
+//  padding: 15px;
+@import '../../../assets/scss/variable';
+*{
+  margin:0;
+  padding:0;
+}
+h1,h2,h3,h4,h5 {
+  color:#000;
+  font-weight: bold;
+}
+.echarts-pie-panel {
+  overflow: hidden;
+}
+.pie-left-area {
+  width:50%;
+  float: left;
+  font-size: 16px;
+  padding:22px;
+  color:#000;
+}
+.left-head {
+  border-bottom: 1px solid #c0c0c0;
+  padding:15px 0;
+  overflow: hidden;
+}
+.left-head h4 {
+  float: left;
+}
+.router-link {
+  float: right;
+  font-weight: bold;
+  font-size: 15px;
+}
+.left-echarts {
+
+}
+.echart-title {
+  padding:15px 0;
+}
+.margin-left {
+  margin-left:30px;
+}
+
+.pie-show {
+  /*width:240px;
+  height: 240px;*/
+  margin:20px auto 50px;
+}
+.pie-show .demo-sheet {
+  width:100%;
+  height: 520px;
+  margin:0 auto;
+}
+
+.echars-foot {
+  width:80%;
+  margin:0 auto;
+  overflow: hidden;
+}
+.foot-item {
+  float: left;
+  width:50%;
+  margin-bottom: 10px;
+}
+
+
+.pie-right-area {
+  width:50%;
+  float: right;
+  padding:20px;
+  color:#000;
+}
+.right-top {
+  padding:15px 0;
+  font-size: 15px;
+  overflow: hidden;
+}
+.red-font {
+  color:#f96946;
+}
+.grey-font {
+  color:rgba(0, 0, 0, 0.65);
+}
+::ng-deep .ant-checkbox-checked .ant-checkbox-inner, .ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: #f96946;
+  border-color:#f96946;
+}
+
+::ng-deep .ant-checkbox-checked:after {
+  border-color:#f96946;
+}
+.head-left {
+  float: left;
+}
+.head-right {
+  float: right;
+  color:#000;
+}
+::ng-deep .right-sheet .ant-table-thead > tr > th,::ng-deep .ant-table{
+  color:#000;
+  text-align: center;
+}
+::ng-deep .ant-table-bordered .ant-table-thead > tr > th,::ng-deep  .ant-table-bordered .ant-table-tbody > tr > td {
+  text-align: center;
+}
+::ng-deep .right-sheet .ant-table-thead > tr > th {
+  background-color: #fff;
+}
+.min-width {
+  width:100px;
+}
+

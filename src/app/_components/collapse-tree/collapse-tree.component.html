@@ -1,0 +1,14 @@
+<nz-collapse>
+    <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active" class="level-{{panel.level}}">
+      <div *ngIf="panel.childPanel&&panel.childPanel.length>0" >
+        <nz-collapse>
+          <nz-collapse-panel *ngFor="let childPanel of panel.childPanel" [nzHeader]="childPanel.name"
+            [nzActive]="childPanel.active" class="level-{{childPanel.level}} padding-left-20px" [nzActive]="panel.active">
+            <p>{{childPanel.content}}</p>
+          </nz-collapse-panel>
+        </nz-collapse>
+      </div>
+    </nz-collapse-panel>
+  </nz-collapse>
+
+

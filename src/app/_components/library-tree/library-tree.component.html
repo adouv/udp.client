@@ -1,0 +1,30 @@
+
+  <div class="tree-left-container">
+    <div class="tree-header">
+      <nz-select class="n-radius bg-gray"  nzAllowClear nzPlaceHolder="全部" [nzDisabled]="optionDisable">
+          <nz-option nzValue="1" nzLabel="全部"></nz-option>
+          <nz-option nzValue="2" nzLabel="暂无年级"></nz-option>
+      </nz-select>
+      <nz-select class="n-radius bg-gray" nzAllowClear nzPlaceHolder="全部" [nzDisabled]="optionDisable">
+          <nz-option nzValue="1" nzLabel="全部"></nz-option>
+          <nz-option nzValue="2" nzLabel="暂无学科"></nz-option>
+      </nz-select>
+      <nz-select class="n-radius"  nzAllowClear nzPlaceHolder="全部" [nzMode]="">
+          <nz-option nzValue="1" nzLabel="上学期"></nz-option>
+          <nz-option nzValue="2" nzLabel="下学期"></nz-option>
+      </nz-select>
+    </div>
+    <div class="scroll-box">
+      <!-- 这里是Loding 根据业务逻辑判断 暂时隐藏 -->
+        <div *ngIf="!isLoadComplete" style="margin-top: 40px;text-align: center;display: none;">
+            <!-- [nzSpinning]="outlineNodes.length == 0" -->
+            <nz-spin  [nzSize]="'large'" class="spin-loading" ></nz-spin>
+        </div>
+      <!-- 这里是查询数据显示 -->
+        <app-collapse-tree></app-collapse-tree>
+      <!-- 这里是缺省页，根据查询内容判断 暂时隐藏-->
+        <app-elliptical-page class="animated fadeIn" title="暂无相应课程安排，请联系管理员" style="display:none;"></app-elliptical-page>
+      </div>
+  </div>
+
+

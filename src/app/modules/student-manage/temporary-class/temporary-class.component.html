@@ -1,0 +1,120 @@
+<div class="content">
+  <button aria-label="Close" class="close ng-star-inserted">
+    <span class="close-x"></span>
+  </button>
+  <div class="title">
+    创建“临时班级 1”
+  </div>
+  <div class="modal-content">
+    <div class="sdkEditAdd">
+      <form class="modal-content-form clearfix">
+        <div class="form-item clearfix importType">
+          <span class="form-item-label">导入类型：</span>
+          <nz-select nzAllowClear nzPlaceHolder="Choose">
+            <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </div>
+        <div class="form-item ">
+          <span class="form-item-label">选择文件：</span>
+          <!-- <button type="button" class="footer-btn btn-cancel rel" (mouseenter)="showTitle()" (mouseleave)="hideTitle()">
+                      导入学生
+                  </button> -->
+          <!-- <span class="bottomtip"  [ngClass]="{'hide': !isShowTitle}" >请选择excel文件，文件中依次输入待导入学生的学号、姓名、性别。 </span> -->
+          <nz-tooltip [nzTitle]="'请选择excel文件，文件中依次输入待导入学生的学号、姓名、性别。'" [nzPlacement]="'bottom'">
+            <button class="footer-btn btn-cancel rel" nz-button nz-tooltip>导入学生 </button>
+            <!-- <button nz-button nz-tooltip>Bottom</button> -->
+          </nz-tooltip>
+          <button type="button" class="footer-btn btn-text">
+            下载模板
+          </button>
+        </div>
+      </form>
+      <div class="table ImgBox">
+
+        <table>
+          <tr height="30">
+            <td class="number_xh" width="20%">序号</td>
+            <td width="20%">学号</td>
+            <td width="20%">姓名</td>
+            <td width="20%">性别</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">1</td>
+            <td>102992329232923</td>
+            <td>张三</td>
+            <td>男</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">2</td>
+            <td>102992329232923</td>
+            <td>王淑君</td>
+            <td>女</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">3</td>
+            <td>102992329232923</td>
+            <td>苏天天</td>
+            <td>男</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">4</td>
+            <td>102992329232923</td>
+            <td>许海粟</td>
+            <td>男</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">5</td>
+            <td>102992329232923</td>
+            <td>吴尧</td>
+            <td>女</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">6</td>
+            <td>102992329232923</td>
+            <td>蔡明月</td>
+            <td>男</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">7</td>
+            <td>102992329232923</td>
+            <td>王丽亚</td>
+            <td>女</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">8</td>
+            <td>102992329232923</td>
+            <td>郭亚茹</td>
+            <td>女</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">9</td>
+            <td>102992329232923</td>
+            <td>姜珊</td>
+            <td>男</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">10</td>
+            <td>102992329232923</td>
+            <td>朱雪</td>
+            <td>女</td>
+          </tr>
+          <tr height="30">
+            <td class="number_xh">11</td>
+            <td>102992329232923</td>
+            <td>朱雪</td>
+            <td>女</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="footer-btn btn-cancel">
+      返回
+    </button>
+    <button type="button" class="footer-btn btn-sure">
+      确定
+    </button>
+  </div>
+</div>

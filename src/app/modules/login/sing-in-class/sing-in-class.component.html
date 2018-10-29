@@ -1,3 +1,20 @@
-<p>
-  sing-in-class works!
-</p>
+<div class="login-panel">
+  <div class="login-forms">
+    <div class="login-form">
+      <div class="loginBg">
+        <img src="../../../../assets/images/loginBg.png" alt="loginBg" title="loginBg">
+      </div>
+      <div class="input-container">
+        <span class="c-title">班级</span>
+        <div class="c-name">
+          <nz-select style="width: 200px;" [(ngModel)]="singleValue">
+            <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+      <div class="login-footer">
+        <div class="sure">确定</div>
+      </div>
+    </div>
+  </div>
+</div>

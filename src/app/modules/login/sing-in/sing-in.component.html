@@ -1,3 +1,27 @@
-<p>
-  sing-in works!
-</p>
+<div class="login-panel">
+  <div class="login-forms">
+    <div class="login-form">
+      <div class="loginBg">
+        <img src="../../../../assets/images/loginBg.png" alt="loginBg" title="loginBg">
+      </div>
+      <div class="input-container">
+        <div class="input-panel">
+          <i class="icon iconfont icon-cli-user"></i>
+          <div class="input-border">
+            <input type="text" placeholder="请输入用户名">
+          </div>
+        </div>
+        <div class="input-panel">
+          <i class="icon iconfont icon-cli-password"></i>
+          <div class="input-border">
+            <input type="text" placeholder="请输入密码">
+          </div>
+        </div>
+      </div>
+      <div class="login-footer">
+        <div class="sure" (click)="loginClick()">登录</div>
+        <div class="lin">临时用户</div>
+      </div>
+    </div>
+  </div>
+</div>

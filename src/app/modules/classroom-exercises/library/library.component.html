@@ -1,0 +1,284 @@
+<div class="library" flex="dir:top">
+        <nz-layout>
+            <nz-header>
+                <h2>校本题库</h2>
+            </nz-header>
+            <nz-content>
+                <nz-tabset [nzTabBarExtraContent]="extraTemplate" (nzSelectChange)="tabChange($event)">
+                    <nz-tab  [nzTitle]="'章节'">
+                        <nz-layout>
+                          <nz-sider>
+                            <app-library-tree></app-library-tree>
+                          </nz-sider>
+                          <nz-content>
+                            <div flex-box="1" class="exercise-list">
+                              <ng-container *ngTemplateOutlet="exerciseList"></ng-container>
+                            </div>
+                          </nz-content>
+                        </nz-layout>
+                    </nz-tab>
+                    <nz-tab  [nzTitle]="'知识点'">
+                        <nz-layout>
+                          <nz-sider>
+                            <app-collapse-tree></app-collapse-tree>
+                          </nz-sider>
+                          <nz-content>
+                            <div flex-box="1" class="exercise-list">
+                              <ng-container *ngTemplateOutlet="exerciseList"></ng-container>
+                            </div>
+                          </nz-content>
+                        </nz-layout>
+                    </nz-tab>
+                  </nz-tabset>
+                  <ng-template #extraTemplate>
+                    <span class="selected-topic" >已选0题</span>
+                  </ng-template>
+                  <ng-template #exerciseList>
+                    <div class="list-container" flex="dir:top">
+    
+                      <div class="list-header">
+                          <!-- 搜索 -->
+                                  <div class="searchquestionIds-wrapper">
+                            <app-input-search  [tpkPlaceholder]="'关键字查询'" [(tpkModel)]="keyword"
+                            class="mar-rig-20px" (onSearch)="searchQuestionList($event)"></app-input-search>
+                            <!-- <input-search [maxlength]="'40'" [tpkPlaceholder]="'关键字查询'" [(tpkModel)]="keyword"
+                            class="mar-rig-20px" (onSearch)="searchQuestionList($event)"></input-search>-->
+    
+                            <nz-radio-group ngModel="searchType" (ngModelChange)="changeType($event)">
+                                <label nz-radio [nzValue]="0">已选{{tabIndex===0?"章节":"知识点"}}搜索</label>
+                                <label nz-radio [nzValue]="1">所有{{tabIndex===0?"章节":"知识点"}}搜索</label>
+                              </nz-radio-group>
+                        </div>
+    
+                          <!-- 已选 -->
+                          <div class="tag-wrapper">
+                            <span class="gray">已选{{tabIndex===0?"章节":"知识点"}}：</span>
+                            <ul>
+                              <li>
+                                <span>测试内容 </span>
+                                <i class="iconfont icon-label-close" ></i>
+                              </li>
+                            </ul>
+                          </div>
+    
+                          <!--题型-->
+                          <div class="type-wrapper">
+                            <span class="gray">题型：</span>
+                            <ul>
+                              <li class='active'>
+                                <span>全部</span>
+                              </li>
+                            </ul>
+                            <!-- 批量加入弹窗 -->
+                            <!--<button nz-button nzType="default" (click)="selectChapterDialog()">批量加入课堂</button>-->
+                            <div class="lw-tpk-pc">
+                              <button nz-button nzType="default"  >批量加入课堂</button>
+                            </div>
+                          </div>
+                        </div>
+    
+                        <!--试题列表-->
+                        <div class="list-content auto-scroll" flex-box="1">
+                          <ul>
+                            <li flex="" >
+                              <label nz-checkbox></label>
+                              <div class="item-exercise">
+                                <div class="html-wrapper">
+                                  <div class="html-top">1.2.
+                                      某同学在参加学校开展的综合实践活动中，考察了学校附近一家化工厂在“零点行动”前后的污水处理情况（“零点行动”是国家为保护太湖流域水资源所采取的专项行动）．该同学在考察过程中收集到了如下资料：
+                                      ①该化工厂排放的污水中主要成分是盐酸，提取未经处理的污水水样，用pH试纸测得pH=3；
+                                      ②处理污水步骤之一是：污水进入中和池进行中和处理，所用的材料是较经济的石灰水；
+                                      ③提取经过处理后可排放的水样，测得pH在7.0左右．
+                                      根据上述提供的资料，回答下列问题：
+                                      （1）该同学的这种考察属于     调查（填“直接”或“间接”）．
+                                      （2）要测出污水的酸碱度，若不用pH试纸，可选用下列     方法．
+                                      A．酚酞指示剂检验
+                                      B．中和滴定
+                                      C．紫色石蕊指示剂检验
+                                      （3）经计算得知pH=3污水中，盐酸的质量分数为0.00365%假设中和池中有1.0×10 6kg污水[污水中其他物质均不与Ca（OH） 2反应]，至少需多少千克Ca（OH） 2才能完全中和？</div>
+                                  <div class="dynamic-html"></div>
+                                </div>
+                                <div class="operate-wrapper" flex="">
+                                  <div class="button-group" flex >
+                                    <span class="iconfont icon-answer"></span>
+                                    <span>习题解析</span>
+                                  </div>
+                                  <div class="button-group">
+                                    <span class="iconfont icon-add_activity"></span>
+                                    <span>加入课堂</span>
+                                  </div>
+                                  <div class="button-group" flex >
+                                    <span class="iconfont icon-del"></span>
+                                    <span>移出课堂</span>
+                                  </div>
+                                </div>
+                                <div class="exercises-detail" style="display: none;">
+                                  <div>
+                                    <div class="font-bold">[ 正确答案 ]</div>
+                                    <div class="dynamic-html" ></div>
+                                  </div>
+                                  <div class="mar-top-30px">
+                                    <div class="font-bold">[ 答案解析 ]</div>
+                                    <div class="dynamic-html" ></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <li flex="" >
+                                <label nz-checkbox></label>
+                                <div class="item-exercise">
+                                  <div class="html-wrapper">
+                                    <div class="html-top">1.
+                                        </div>
+                                    <div class="dynamic-html">某同学在参加学校开展的综合实践活动中，考察了学校附近一家化工厂在“零点行动”前后的污水处理情况（“零点行动”是国家为保护太湖流域水资源所采取的专项行动）．该同学在考察过程中收集到了如下资料：
+                                        ①该化工厂排放的污水中主要成分是盐酸，提取未经处理的污水水样，用pH试纸测得pH=3；
+                                        ②处理污水步骤之一是：污水进入中和池进行中和处理，所用的材料是较经济的石灰水；
+                                        ③提取经过处理后可排放的水样，测得pH在7.0左右．
+                                        根据上述提供的资料，回答下列问题：
+                                        （1）该同学的这种考察属于     调查（填“直接”或“间接”）．
+                                        （2）要测出污水的酸碱度，若不用pH试纸，可选用下列     方法．
+                                        A．酚酞指示剂检验
+                                        B．中和滴定
+                                        C．紫色石蕊指示剂检验
+                                        （3）经计算得知pH=3污水中，盐酸的质量分数为0.00365%假设中和池中有1.0×10 6kg污水[污水中其他物质均不与Ca（OH） 2反应]，至少需多少千克Ca（OH） 2才能完全中和？</div>
+                                  </div>
+                                  <div class="operate-wrapper" flex="">
+                                    <div class="button-group" flex >
+                                      <span class="iconfont icon-answer"></span>
+                                      <span>习题解析</span>
+                                    </div>
+                                    <div class="button-group">
+                                      <span class="iconfont icon-add_activity"></span>
+                                      <span>加入课堂</span>
+                                    </div>
+                                    <div class="button-group" flex >
+                                      <span class="iconfont icon-del"></span>
+                                      <span>移出课堂</span>
+                                    </div>
+                                  </div>
+                                  <div class="exercises-detail" >
+                                    <div>
+                                      <div class="font-bold">[ 正确答案 ]</div>
+                                      <div class="dynamic-html" ></div>
+                                    </div>
+                                    <div class="mar-top-30px">
+                                      <div class="font-bold">[ 答案解析 ]</div>
+                                      <div class="dynamic-html" ></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <li flex="" >
+                                  <label nz-checkbox></label>
+                                  <div class="item-exercise">
+                                    <div class="html-wrapper">
+                                      <div class="html-top">1.2.
+                                          某同学在参加学校开展的综合实践活动中，考察了学校附近一家化工厂在“零点行动”前后的污水处理情况（“零点行动”是国家为保护太湖流域水资源所采取的专项行动）．该同学在考察过程中收集到了如下资料：
+                                          ①该化工厂排放的污水中主要成分是盐酸，提取未经处理的污水水样，用pH试纸测得pH=3；
+                                          ②处理污水步骤之一是：污水进入中和池进行中和处理，所用的材料是较经济的石灰水；
+                                          ③提取经过处理后可排放的水样，测得pH在7.0左右．
+                                          根据上述提供的资料，回答下列问题：
+                                          （1）该同学的这种考察属于     调查（填“直接”或“间接”）．
+                                          （2）要测出污水的酸碱度，若不用pH试纸，可选用下列     方法．
+                                          A．酚酞指示剂检验
+                                          B．中和滴定
+                                          C．紫色石蕊指示剂检验
+                                          （3）经计算得知pH=3污水中，盐酸的质量分数为0.00365%假设中和池中有1.0×10 6kg污水[污水中其他物质均不与Ca（OH） 2反应]，至少需多少千克Ca（OH） 2才能完全中和？</div>
+                                      <div class="dynamic-html"></div>
+                                    </div>
+                                    <div class="operate-wrapper" flex="">
+                                      <div class="button-group" flex >
+                                        <span class="iconfont icon-answer"></span>
+                                        <span>习题解析</span>
+                                      </div>
+                                      <div class="button-group">
+                                        <span class="iconfont icon-add_activity"></span>
+                                        <span>加入课堂</span>
+                                      </div>
+                                      <div class="button-group" flex >
+                                        <span class="iconfont icon-del"></span>
+                                        <span>移出课堂</span>
+                                      </div>
+                                    </div>
+                                    <div class="exercises-detail" >
+                                      <div>
+                                        <div class="font-bold">[ 正确答案 ]</div>
+                                        <div class="dynamic-html" ></div>
+                                      </div>
+                                      <div class="mar-top-30px">
+                                        <div class="font-bold">[ 答案解析 ]</div>
+                                        <div class="dynamic-html" ></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li flex="" >
+                                    <label nz-checkbox></label>
+                                    <div class="item-exercise">
+                                      <div class="html-wrapper">
+                                        <div class="html-top">1.2.
+                                            某同学在参加学校开展的综合实践活动中，考察了学校附近一家化工厂在“零点行动”前后的污水处理情况（“零点行动”是国家为保护太湖流域水资源所采取的专项行动）．该同学在考察过程中收集到了如下资料：
+                                            ①该化工厂排放的污水中主要成分是盐酸，提取未经处理的污水水样，用pH试纸测得pH=3；
+                                            ②处理污水步骤之一是：污水进入中和池进行中和处理，所用的材料是较经济的石灰水；
+                                            ③提取经过处理后可排放的水样，测得pH在7.0左右．
+                                            根据上述提供的资料，回答下列问题：
+                                            （1）该同学的这种考察属于     调查（填“直接”或“间接”）．
+                                            （2）要测出污水的酸碱度，若不用pH试纸，可选用下列     方法．
+                                            A．酚酞指示剂检验
+                                            B．中和滴定
+                                            C．紫色石蕊指示剂检验
+                                            （3）经计算得知pH=3污水中，盐酸的质量分数为0.00365%假设中和池中有1.0×10 6kg污水[污水中其他物质均不与Ca（OH） 2反应]，至少需多少千克Ca（OH） 2才能完全中和？</div>
+                                        <div class="dynamic-html"></div>
+                                      </div>
+                                      <div class="operate-wrapper" flex="">
+                                        <div class="button-group" flex >
+                                          <span class="iconfont icon-answer"></span>
+                                          <span>习题解析</span>
+                                        </div>
+                                        <div class="button-group">
+                                          <span class="iconfont icon-add_activity"></span>
+                                          <span>加入课堂</span>
+                                        </div>
+                                        <div class="button-group" flex >
+                                          <span class="iconfont icon-del"></span>
+                                          <span>移出课堂</span>
+                                        </div>
+                                      </div>
+                                      <div class="exercises-detail" >
+                                        <div>
+                                          <div class="font-bold">[ 正确答案 ]</div>
+                                          <div class="dynamic-html" ></div>
+                                        </div>
+                                        <div class="mar-top-30px">
+                                          <div class="font-bold">[ 答案解析 ]</div>
+                                          <div class="dynamic-html" ></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                          </ul>
+    
+                          <div class="pagination-box" >
+                            <nz-pagination [nzPageSize]="'3'"></nz-pagination>
+                          </div>
+                          <div class="spin-loading-div" style="display: none;">
+                              <nz-spin  [nzSize]="'large'" class="spin-loading" ></nz-spin>
+                          </div>
+                          <!-- <app-elliptical-page imgName="no-exercises.png"
+                            title="没有相应的试题，请选换其他条件尝试"></app-elliptical-page>
+                          <app-elliptical-page imgName="no-exercises.png" title="请选择章节进行选题"></app-elliptical-page>
+                          <app-elliptical-page imgName="no-exercises.png" title="请选择知识点进行选题"></app-elliptical-page> -->
+                        </div>
+                    </div>
+                  </ng-template>
+            </nz-content>
+            <nz-footer>
+                <div class="lw-tpk-pc">
+                    <button nz-button [nzType]="'default'">返回</button>
+                    <button nz-button [nzType]="'default'">存为习题包</button>
+                    <button nz-button [nzType]="'danger'">开始做题</button>
+                </div>
+            </nz-footer>
+        </nz-layout>
+    </div>
+    

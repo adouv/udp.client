@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ApiBaseService } from '../apiBase.service';
-import { AuthRequestDto } from '../../_dto/account/request/authRequest.Dto';
+import { HttpService } from '../../_ddd/http.service';
+import { HttpProxy } from '../../_dto/enum/httpProxy.enum';
 
 @Injectable()
-export class GetClassService extends ApiBaseService<AuthRequestDto> {
+export class GetClassService extends ApiBaseService<any> {
 
-  constructor() {
+  constructor(private http$: HttpService) {
     super();
   }
 
@@ -13,13 +14,21 @@ export class GetClassService extends ApiBaseService<AuthRequestDto> {
     return true;
   }
 
-  protected async ExecuteMethod(): Promise<any> {
-    this.ResponseResult = {
-      Data: "这是获取班级具体业务逻辑",
-      Message: "成功",
-      ErrorCode: "",
-      IsSuccess: true,
-      Status: 200
-    };
+  protected ExecuteMethod(): Promise<any> {
+
+    let url: string = HttpProxy.CLASSES_LIST_SERVER + '/organization/organization/teacher/classes';
+
+    return this.http$.promistGet(url, this.Parameter).then(response => {
+      this.ResponseResult = {
+        Data: response,
+        Message: "成功",
+        ErrorCode: "",
+        IsSuccess: true,
+        Status: 200
+      };
+    }).catch(error => {
+      throw new Error(error);
+    });
+
   }
 }

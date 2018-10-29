@@ -54,6 +54,19 @@ export class HttpService {
 
     return this.httpClient.get(url, options);
   }
+  promistGet(url: string, params?: any, options?: any): Promise<any> {
+    if (options) {
+      options.params = params;
+    }
+
+    return new Promise((resolve, reject) => {
+      this.httpClient.get(url, options).subscribe(response => {
+        resolve(response);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
   /**
    * delete
    *

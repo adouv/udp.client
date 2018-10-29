@@ -18,7 +18,9 @@ export class InterceptorService implements HttpInterceptor {
    * @returns {Observable<HttpEvent<any>>}
    */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    
     let LW: string = localStorage.getItem('LWToken');
+
     if (LW) {
       req = req.clone(
         {
@@ -26,14 +28,29 @@ export class InterceptorService implements HttpInterceptor {
         }
       );
     }
+
     return next.handle(req);
+    // return next.handle(req).pipe(mergeMap((event: any) => {
+    //   if (event instanceof HttpResponse && event.status != 200) {
+    //     console.log('---error1---');
+    //     console.log(event);
+    //     console.log('---error1---');
+    //     return ErrorObservable.create(event);
+    //   }
+    //   return event;
+    // }), catchError((error: HttpResponse<any>) => {
+    //   console.log('---error2---');
+    //   console.log(event);
+    //   console.log('---error2---');
+    //   return this.responseHandle(error);
+    // }));
   }
   /**
    * 
    * @param {HttpResponse<any>} response
    * @returns {ErrorObservable}
    */
-  responseHandle(response: HttpResponse<any>): HttpResponse<any> {
+  responseHandle(response: HttpResponse<any>): ErrorObservable {
     switch (response.status) {
       case 200:
         console.log('业务错误');
@@ -52,7 +69,7 @@ export class InterceptorService implements HttpInterceptor {
       default:
         break;
     }
-    return response;
+    return ErrorObservable.create(response);
   }
   /**
    * token失效跳出登录页面

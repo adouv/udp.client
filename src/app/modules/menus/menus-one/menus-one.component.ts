@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { SignInService } from '../../../_service';
+import { SignInService, GetClassService } from '../../../_service';
 import { AuthRequestDto } from '../../../_dto/account/request/authRequest.Dto';
 
 @Component({
@@ -12,7 +12,7 @@ export class MenusOneComponent implements OnInit {
   showMenus: Boolean = false; // 是否显示菜单状态
   isLogin: Boolean = true; // 获取登录状态
 
-  constructor(private signInService: SignInService) {
+  constructor(private signInService: SignInService, private getClassService: GetClassService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +26,11 @@ export class MenusOneComponent implements OnInit {
     };
     this.signInService.Execute(model).then(response => {
       console.log(response);
+      this.getClassService.Execute({}).then(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
     }).catch(error => {
       console.log(error);
     });

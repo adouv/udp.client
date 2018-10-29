@@ -39,7 +39,7 @@ export abstract class ApiBaseService<P> {
         await this.ExecuteMethod();
       } else {
         this.ResponseResult = {
-          Message: "",
+          Message: "验证失败",
           ErrorCode: "000000",
           IsSuccess: false,
           Status: 100
@@ -53,7 +53,7 @@ export abstract class ApiBaseService<P> {
         IsSuccess: false,
         Status: 100
       };
-      //console.log(this.ResponseResult);
+      console.log(this.ResponseResult);
 
     }
     return this.ResponseResult;

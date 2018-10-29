@@ -6,3 +6,4 @@ export { ElementService } from './element.service';
 export { FsService } from './fs.service';
 export { UtilsService } from './utils.service';
 export { WindowsService } from './windows.service';
+export { ClientService } from './client.service';

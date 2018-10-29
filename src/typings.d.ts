@@ -1,4 +1,6 @@
 /* SystemJS module definition */
+/// <reference path="../node_modules/@types/node/index.d.ts" />
+/// <reference types="@types/node" />
 declare var module: NodeModule;
 interface NodeModule {
   id: string;

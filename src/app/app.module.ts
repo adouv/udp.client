@@ -5,7 +5,7 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { StoreModule } from '@ngrx/store';
 import { routing } from './app.routers';
 
-import { UdpService, InterceptorService, HttpService, DatabaseService, ElementService, FsService, UtilsService, WindowsService } from './_ddd';
+import { UdpService, InterceptorService, HttpService, ElementService, FsService, UtilsService, WindowsService, ClientService } from './_ddd';
 import { SignInService, GetClassService } from './_service';
 
 
@@ -17,11 +17,11 @@ const dddList = [
   UdpService,
   InterceptorService,
   HttpService,
-  DatabaseService,
   ElementService,
   FsService,
   UtilsService,
-  WindowsService
+  WindowsService,
+  ClientService
 ];
 /**
  * api服务类

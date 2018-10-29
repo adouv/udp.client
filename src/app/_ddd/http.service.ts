@@ -23,6 +23,19 @@ export class HttpService {
 
     return this.httpClient.post(url, {}, options);
   }
+  promistPost(url: string, params?: any, options?: any): Promise<any> {
+    if (options) {
+      options.params = params;
+    }
+
+    return new Promise((resolve, reject) => {
+      this.httpClient.post(url, {}, options).subscribe(response => {
+        resolve(response);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
   /**
    * get
    *

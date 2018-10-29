@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ResponseMessageDto } from '../_dto/responseMessageDto';
-import { Observable } from 'rxjs/Observable';
 /**
  * api统一处理类
  * 抽象类
@@ -21,7 +20,7 @@ export abstract class ApiBaseService<P> {
   /**
    * 具体业务逻辑
    */
-  protected abstract ExecuteMethod(): void;
+  protected abstract ExecuteMethod(): Promise<any>;
   /**
    * 请求参数验证
    */
@@ -30,26 +29,33 @@ export abstract class ApiBaseService<P> {
    * 执行
    * @param model 请求实体
    */
-  public Execute(model?: P): Observable<ResponseMessageDto> {
+  public async Execute(model?: P): Promise<ResponseMessageDto> {
     try {
       if (model) {
         this.Parameter = model;
       }
 
       if (this.Validate()) {
-        return Observable.create(observable => {
-          this.ExecuteMethod();
-          observable.next(this.ResponseResult);
-        });
+        await this.ExecuteMethod();
       } else {
-        return Observable.create(observable => {
-          throw new Error('验证失败');
-        });
+        this.ResponseResult = {
+          Message: "",
+          ErrorCode: "000000",
+          IsSuccess: false,
+          Status: 100
+        };
       }
     } catch (error) {
-      return Observable.create(observable => {
-        throw new Error(error);
-      });
+
+      this.ResponseResult = {
+        Message: error + "",
+        ErrorCode: "999999",
+        IsSuccess: false,
+        Status: 100
+      };
+      //console.log(this.ResponseResult);
+
     }
+    return this.ResponseResult;
   }
 }

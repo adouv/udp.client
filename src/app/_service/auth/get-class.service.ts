@@ -13,7 +13,7 @@ export class GetClassService extends ApiBaseService<AuthRequestDto> {
     return true;
   }
 
-  protected ExecuteMethod(): void {
+  protected async ExecuteMethod(): Promise<any> {
     this.ResponseResult = {
       Data: "这是获取班级具体业务逻辑",
       Message: "成功",

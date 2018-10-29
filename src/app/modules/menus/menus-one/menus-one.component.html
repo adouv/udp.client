@@ -1,3 +1,21 @@
-<p>
-  menus-one works!
-</p>
+<div class="menus">
+  <div *ngIf="!showMenus">
+    <div class="menu-top">
+      <i class="icon iconfont icon-banji"></i>
+      <!-- <div class="ls-class">临时班级2</div> -->
+    </div>
+    <div class="menu-box">
+      <ul [ngClass]="{'disabled': !isLogin}">
+        <li><i class="icon iconfont icon-zhangjielianxi"></i>课堂习题</li>
+        <li><i class="icon iconfont icon-ion-ios-user"></i>学生管理</li>
+      </ul>
+      <div class="class-over" (click)="checkLogin()">
+        <div *ngIf="isLogin; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>下课</ng-template>
+        <ng-template #elseBlock>上课</ng-template>
+      </div>
+      <div class="foot" (click)="showHideMenu()"></div>
+    </div>
+  </div>
+  <div class="up-menu" (click)="showHideMenu()" *ngIf="showMenus"><img src="../../../assets/images/up-btn.png" alt=""></div>
+</div>

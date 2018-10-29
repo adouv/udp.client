@@ -26,29 +26,14 @@ export class InterceptorService implements HttpInterceptor {
         }
       );
     }
-    return next.handle(req).pipe(mergeMap((event: any) => {
-      if (event instanceof HttpResponse) {
-        console.log('---error1---');
-        console.log(event);
-        console.log('---error1---');
-        return ErrorObservable.create(event);
-      }
-      return Observable.create(observable => {
-        observable.next(event);
-      });
-    }), catchError((error: HttpResponse<any>) => {
-      console.log('---error2---');
-      console.log(event);
-      console.log('---error2---');
-      return this.responseHandle(error);
-    }));
+    return next.handle(req);
   }
   /**
    * 
    * @param {HttpResponse<any>} response
    * @returns {ErrorObservable}
    */
-  responseHandle(response: HttpResponse<any>): ErrorObservable {
+  responseHandle(response: HttpResponse<any>): HttpResponse<any> {
     switch (response.status) {
       case 200:
         console.log('业务错误');
@@ -67,7 +52,7 @@ export class InterceptorService implements HttpInterceptor {
       default:
         break;
     }
-    return ErrorObservable.create(response);
+    return response;
   }
   /**
    * token失效跳出登录页面

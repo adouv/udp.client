@@ -14,10 +14,17 @@ function createWindow() {
 
   //创建浏览器窗口
   win = new BrowserWindow({
-    width: 500,
-    height: 500,
+    useContentSize: true,
+    width: 80,
+    height: 400,
+    maxWidth: 80,
+    maxHeight: 400,
     frame: false,
-    transparent: true
+    transparent: true,
+    resizable: false,
+    webPreferences: {
+      webSecurity: false
+    }
   });
 
   //然后加载应用的 index.html

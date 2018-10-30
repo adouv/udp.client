@@ -6,7 +6,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SharedModule } from './modules/shared/shared.module';
 //import { StoreModule } from '@ngrx/store';
 import { routing } from './app.routers';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { UdpService, InterceptorService, HttpService, ElementService, FsService, UtilsService, WindowsService, ClientService } from './_ddd';
 import { SignInService, GetClassService } from './_service';
 
@@ -43,7 +43,9 @@ const serviceList = [
     BrowserAnimationsModule,
     SharedModule,
     NgZorroAntdModule.forRoot(),
+    ReactiveFormsModule,
     routing
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

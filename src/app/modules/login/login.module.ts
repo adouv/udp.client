@@ -1,3 +1,4 @@
+import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
@@ -9,7 +10,9 @@ import { SingInClassComponent } from './sing-in-class/sing-in-class.component';
   imports: [
     CommonModule,
     SharedModule,
-    routing
+    routing,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [SingInComponent, SingInClassComponent]
 })

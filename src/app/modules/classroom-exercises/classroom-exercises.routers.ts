@@ -7,6 +7,8 @@ import { LineResultComponent } from './answer-result/line-result/line-result.com
 import { PieChartComponent } from '../../_components/pie-chart/pie-chart.component';
 import { PieResultComponent } from './answer-result/pie-result/pie-result.component';
 import { ObjectiveQuestionComponent } from './answer-result/objective-question/objective-question.component';
+import { NoteTakingComponent } from './note-taking/note-taking.component';
+
 const ClassroomExercisesRouters: Routes = [
     {
         path: '',
@@ -36,8 +38,12 @@ const ClassroomExercisesRouters: Routes = [
     {
         path: 'objective-question',
         component: ObjectiveQuestionComponent
+    },
+    {
+        path: 'noteTaking',
+        component: NoteTakingComponent
     }
     
 ];
 
-export const routing = RouterModule.forChild(ClassroomExercisesRouters);
+export const routing = RouterModule.forChild(ClassroomExercisesRouters) ;

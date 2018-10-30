@@ -8,6 +8,7 @@ import { SubjectiveProblemComponent } from './subjective-problem/subjective-prob
 import { LineResultComponent } from './answer-result/line-result/line-result.component';
 import { PieResultComponent } from './answer-result/pie-result/pie-result.component';
 import { ObjectiveQuestionComponent } from './answer-result/objective-question/objective-question.component';
+import { NoteTakingComponent } from './note-taking/note-taking.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ObjectiveQuestionComponent } from './answer-result/objective-question/o
     LineResultComponent,
     PieResultComponent,
     ObjectiveQuestionComponent,
+    NoteTakingComponent
   ]
 })
 export class ClassroomExercisesModule { }

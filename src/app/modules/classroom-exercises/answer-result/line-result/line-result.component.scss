@@ -1,0 +1,210 @@
+//  padding: 15px;
+@import '../../../../../assets/scss/variable';
+@import "~ng-zorro-antd/src/ng-zorro-antd.css";
+*{
+  margin:0;
+  padding:0;
+}
+h1,h2,h3,h4,h5 {
+  color:#000;
+  font-weight: bold;
+}
+.wrapper-bg {
+  background: url("../../../../../assets/images/bg.png") no-repeat center center;
+  background-size: 100% 100%;
+  padding:19px;
+  padding-bottom:0;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.echarts-pie-panel {
+  overflow: hidden;
+  background-color: #fff;
+}
+.pie-left-area {
+  width:50%;
+  float: left;
+  font-size: 16px;
+  padding:22px;
+  color:#000;
+  height: 100%;
+}
+.left-head {
+  border-bottom: 1px solid #c0c0c0;
+  padding:15px 0;
+  overflow: hidden;
+}
+.left-head h4 {
+  float: left;
+}
+.router-link {
+  float: right;
+  font-weight: bold;
+  font-size: 15px;
+}
+.left-echarts {
+
+}
+.echart-title {
+  padding:15px 0;
+}
+.margin-left {
+  margin-left:30px;
+}
+
+.pie-show {
+  /*width:240px;
+  height: 240px;*/
+  margin:20px auto 30px;
+}
+.pie-show .demo-sheet {
+  width:100%;
+  height: 440px;
+  margin:0 auto;
+}
+
+.echars-foot {
+  width:80%;
+  margin:0 auto;
+  overflow: hidden;
+}
+.foot-item {
+  float: left;
+  width:50%;
+  margin-bottom: 10px;
+}
+
+
+.pie-right-area {
+  width:50%;
+  float: right;
+  padding:20px;
+  color:#000;
+  height: 100%;
+}
+.right-top {
+  padding:15px 0;
+  font-size: 15px;
+  overflow: hidden;
+}
+.red-font {
+  color:#f96946;
+}
+.grey-font {
+  color:rgba(0, 0, 0, 0.65);
+}
+::ng-deep .ant-checkbox-checked .ant-checkbox-inner, .ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: #f96946 !important;
+  border-color:#f96946 !important;
+}
+
+::ng-deep .ant-checkbox-checked:after {
+  border-color:#f96946 !important;
+}
+.head-left {
+  float: left;
+}
+.head-right {
+  float: right;
+  color:#000;
+}
+::ng-deep .right-sheet .ant-table-thead > tr > th,::ng-deep .ant-table{
+  color:#000;
+  text-align: center;
+}
+::ng-deep .ant-table-bordered .ant-table-thead > tr > th,::ng-deep  .ant-table-bordered .ant-table-tbody > tr > td {
+  text-align: center;
+}
+::ng-deep .right-sheet .ant-table-thead > tr > th {
+  background-color: #fff;
+}
+.min-width {
+  width:100px;
+}
+
+.bottom-option {
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height: 68px;
+  background:#3b5253;
+  color:#ff7d55;
+  padding:0 19px;
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex;         /* 新版本语法: Opera 12.1, Firefox 22+ */
+  align-items: center;
+  justify-content: space-between;
+}
+.bottom-btn {
+  width:100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius:24px;
+  cursor: pointer;
+}
+.orange-btn {
+  background-image: linear-gradient(90deg,#febb5c,#ff7d55);
+  color:#fff;
+}
+.empty-btn {
+  border:1px solid #ff7d55;
+}
+.center-pagination {
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex;         /* 新版本语法: Opera 12.1, Firefox 22+ */
+  align-items: center;
+  justify-content: space-between;
+}
+.margin-center {
+  margin:0 28px 0 18px;
+}
+.prev-btn {
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.next-btn {
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.prev-btn .iconfont {
+  font-size: 12px;
+  margin-right:4px;
+}
+.next-btn .iconfont {
+  font-size: 12px;
+  margin-right:4px;
+}
+.disabled-btn {
+  opacity: .5;
+}
+.flex {
+  display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex;
+}
+.right-groups .bottom-btn{
+   margin:0 8px;
+}

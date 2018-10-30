@@ -1,0 +1,81 @@
+<div class="wrapper-bg">
+  <div class="echarts-pie-panel" [style.height.px]="offsetheight">
+    <div class="pie-left-area">
+      <div class="left-head">
+        <h4>正确答案</h4>
+      </div>
+      <div class="question-area">
+        <div class="inner-box">
+          <div class="question-title">[ 正确答案 ]</div>
+          <div class="answer-cont">
+            A.非负数
+          </div>
+          <div class="question-title margin-top">[ 答案解析 ]</div>
+          <div class="answer-cont">
+            <p>解：一个数的绝对值等于这个数本身，这个数是非负数.</p>
+            <p>故选：A</p>
+          </div>
+        </div>
+      </div>
+      <div class="echars-foot">
+        <div class="foot-item">正答率：39%</div>
+        <div class="foot-item">班级难度系数：0.6</div>
+        <div class="foot-item">正答平均用时：2'39"</div>
+        <div class="foot-item">全班平均用时：2'39"</div>
+      </div>
+    </div>
+    <div class="pie-right-area">
+      <div class="right-top">
+        <span class="head-left">
+          全班组，共39人，<a routerLink="" class="red-font">查看全部</a>
+        </span>
+        <span class="head-right">
+          <label nz-checkbox [(ngModel)]="checked">显示学生信息</label>
+        </span>
+      </div>
+      <div class="right-sheet">
+        <nz-table
+          #borderedTable
+          nzBordered
+          [nzData]="dataSet"
+          [nzPageSize]="8">
+          <thead>
+          <tr>
+            <th class="grey-font min-width">序号</th>
+            <th>得分</th>
+            <th>答题耗时</th>
+            <th>组平均用时</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let data of borderedTable.data">
+            <td class="grey-font min-width">{{data.number}}</td>
+            <td>{{data.score}}</td>
+            <td>{{data.time}}</td>
+            <td>{{data.averageTime}}</td>
+            <td>{{data.stuNum}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.sex}}</td>
+          </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+
+  </div>
+  <div class="bottom-option">
+    <div class="left-btn orange-btn bottom-btn">显示题干</div>
+    <div class="center-pagination">
+      <div class="page-size">2/10</div>
+      <div class="prev-btn margin-center disabled-btn"><i class="iconfont icon-last"></i>上一题</div>
+      <div class="next-btn"><i class="iconfont icon-next"></i>下一题</div>
+    </div>
+    <div class="right-groups flex">
+      <div class="orange-btn bottom-btn">笔记预览</div>
+      <div class="empty-btn bottom-btn">关闭</div>
+    </div>
+  </div>
+</div>

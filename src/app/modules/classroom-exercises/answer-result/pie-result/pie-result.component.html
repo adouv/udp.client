@@ -1,0 +1,51 @@
+<div class="wrapper-bg">
+<div class="echarts-pie-panel" [style.height.px]="offsetheight">
+    <app-pie-echarts class="pie-left-area"></app-pie-echarts>
+  <div class="pie-right-area">
+    <div class="right-top">
+        <span class="head-left">
+          A、B的选项组，共计11人，<a routerLink="" class="red-font">查看全部</a>
+        </span>
+      <span class="head-right">
+          <label nz-checkbox [(ngModel)]="checked">显示学生信息</label>
+        </span>
+    </div>
+    <div class="right-sheet">
+      <nz-table
+        #borderedTable
+        nzBordered
+        [nzData]="dataSet"
+        [nzPageSize]="8">
+        <thead>
+        <tr>
+          <th class="grey-font min-width">序号</th>
+          <th>选项</th>
+          <th>答题耗时</th>
+          <th>组平均用时</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of borderedTable.data">
+          <td class="grey-font min-width">{{data.number}}</td>
+          <td>{{data.option}}</td>
+          <td>{{data.time}}</td>
+          <td>{{data.averageTime}}</td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>
+  <div class="bottom-option">
+    <div class="left-btn orange-btn bottom-btn">显示题干</div>
+    <div class="center-pagination">
+      <div class="page-size">2/10</div>
+      <div class="prev-btn margin-center disabled-btn"><i class="iconfont icon-last"></i>上一题</div>
+      <div class="next-btn"><i class="iconfont icon-next"></i>下一题</div>
+    </div>
+    <div class="right-groups flex">
+      <div class="orange-btn bottom-btn">笔记预览</div>
+      <div class="empty-btn bottom-btn">关闭</div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { routing } from './classroom-exercises.routers';
 import { PracticeComponent } from './practice/practice.component';
 import { LibraryComponent } from './library/library.component';
 import { SubjectiveProblemComponent } from './subjective-problem/subjective-problem.component';
+import { NoteTakingComponent } from './note-taking/note-taking.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SubjectiveProblemComponent } from './subjective-problem/subjective-prob
   declarations: [
     PracticeComponent,
     LibraryComponent,
-    SubjectiveProblemComponent
+    SubjectiveProblemComponent,
+    NoteTakingComponent
   ]
 })
 export class ClassroomExercisesModule { }

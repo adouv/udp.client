@@ -1,0 +1,39 @@
+@import '../../../../assets/scss/variable.scss';
+
+
+.note-taking{
+  position: absolute;
+  left: 0;
+  z-index: 9;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 100%;
+}
+
+::ng-deep{
+  .ant-layout{
+    background:url('../../../../assets/images/bg.png');
+    background-size: 100% 100%;
+    nz-footer{
+      background-image: linear-gradient(
+      #3b5253,
+      #3b5253),
+    linear-gradient(
+      #4d4850,
+      #4d4850);
+    background-blend-mode: normal,
+      normal;
+    height: computer(68px);
+      .footer{
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0 20px;
+        display: flex;
+      }
+    }
+  }
+
+
+
+}

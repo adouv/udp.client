@@ -1,10 +1,4 @@
 <div class="menus">
-  <app-tools></app-tools>
-
-  <nz-select class="n-radius bg-gray" nzAllowClear nzPlaceHolder="全部" [nzDisabled]="optionDisable">
-    <nz-option nzValue="1" nzLabel="全部"></nz-option>
-    <nz-option nzValue="2" nzLabel="暂无年级"></nz-option>
-  </nz-select>
   <div *ngIf="!showMenus">
     <div class="menu-top">
       <i class="icon iconfont icon-banji"></i>
@@ -12,7 +6,7 @@
     </div>
     <div class="menu-box">
       <ul [ngClass]="{'disabled': !isLogin}">
-        <li><i class="icon iconfont icon-zhangjielianxi"></i>课堂习题</li>
+        <li><i class="icon iconfont icon-zhangjielianxi1"></i>课堂习题</li>
         <li><i class="icon iconfont icon-ion-ios-user"></i>学生管理</li>
       </ul>
       <div class="class-over" (click)="checkLogin()">

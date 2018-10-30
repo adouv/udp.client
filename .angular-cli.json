@@ -20,8 +20,8 @@
     "styles": [
       "styles.scss",
       "../node_modules/flex.css/dist/flex.css",
-      "assets/classfont/iconfont.css",
       "assets/iconfont/iconfont.css",
+      "assets/classfont/iconfont.css",
       "../node_modules/font-awesome/css/font-awesome.min.css",
       "../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css"
     ],

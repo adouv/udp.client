@@ -5,17 +5,17 @@
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
-    "class-name": true,
+    "class-name": false,//取消class首字母大写
     "comment-format": [
-      true,
+      false,//取消空格校验
       "check-space"
     ],
     "curly": true,
     "deprecation": {
       "severity": "warn"
     },
-    "eofline": true,
-    "forin": true,
+    "eofline": false,//不检查文件结尾换行
+    "forin": false,//不检查forin
     "import-blacklist": [
       true,
       "rxjs",
@@ -23,13 +23,13 @@
     ],
     "import-spacing": true,
     "indent": [
-      true,
+      false,
       "spaces"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
-    "max-line-length": [
-      true,
+    "max-line-length": [//去掉一行140限制
+      false,
       140
     ],
     "member-access": false,
@@ -60,8 +60,8 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
+    "no-inferrable-types": [//boolean: 类型提示
+      false,
       "ignore-params"
     ],
     "no-misused-new": true,
@@ -70,31 +70,31 @@
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
-    "no-trailing-whitespace": true,
+    "no-trailing-whitespace": false,//不检查多余空格
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
-      true,
+      false,
       "check-open-brace",
       "check-catch",
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
-    "quotemark": [
-      true,
+    "prefer-const": false,//不检查const
+    "quotemark": [//去掉双引号检查
+      false,
       "single"
     ],
     "radix": true,
     "semicolon": [
-      true,
+      false,//分号
       "always"
     ],
-    "triple-equals": [
-      true,
+    "triple-equals": [//===提示
+      false,
       "allow-null-check"
     ],
     "typedef-whitespace": [
@@ -109,8 +109,8 @@
     ],
     "unified-signatures": true,
     "variable-name": false,
-    "whitespace": [
-      true,
+    "whitespace": [//去掉冒号后面空格检查
+      false,
       "check-branch",
       "check-decl",
       "check-operator",

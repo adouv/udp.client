@@ -160,6 +160,25 @@ $noSubmitStatus: rgb(153, 153, 153);
         }
       }
     }
+    nz-footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        background: #fff;
+        text-align: center;
+        height: computer(50px);
+        padding: 0;
+        line-height: computer(50px);
+      
+        .lw-tpk-pc {
+          border-top: 1px solid $color_border;
+          margin: 0 computer(20px);
+      
+          button {
+            margin: 0 computer(10px);
+          }
+        }
+      }
     .bottom-btn {
       text-align: center;
       padding: 10px 0;
@@ -193,7 +212,6 @@ $noSubmitStatus: rgb(153, 153, 153);
         border-radius: 15px;
         width: 100px;
         height: 30px;
-        line-height: 30px;
         cursor: pointer;
       }
       .result-preview {
